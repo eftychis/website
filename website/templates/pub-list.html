@@ -1,0 +1,33 @@
+<ul>
+    $for(pubs)$
+        <li>
+          <a href="$url$">$title$</a> - $date$
+	  $if(authors)$<div class=pub-authors>($authors$)</div>$endif$
+	  <div class="pub-links">
+	    $if(doc)$
+            <a class="btn btn-primary btn-outline btn-xs" href="$doc$">
+	      PDF
+	    </a>
+	    $endif$
+	    $if(arxiv)$
+            <a class="btn btn-primary btn-outline btn-xs" href="$arxiv$">
+	      Online Arxiv
+	    </a>
+	    $endif$
+	    $if(pres)$
+            <a class="btn btn-primary btn-outline btn-xs" href="$pres$">
+	      Presentation
+	    </a>
+	    $endif$
+	    $if(post)$
+            <a class="btn btn-primary btn-outline btn-xs" href="$post$">
+	      Related Post
+	    </a>
+            $endif$
+	  </div>
+	  <!-- <div class="pub-abstract" itemprop="text"> -->
+	  <!--   $abstract$ -->
+	  <!-- </div> -->
+        </li>
+    $endfor$
+</ul>

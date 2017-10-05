@@ -1,0 +1,37 @@
+<!-- <article> -->
+<div class="pub-publication">
+<p>  Date: $date$</p>
+$if(authors)$ <p>Authors:<div class=pub-authors> $authors$</div> <p> $endif$
+    <!-- $title$ -->
+</div>
+  <!-- <section class="header"> -->
+     <div class="pub-links">
+	$if(doc)$
+        <a class="btn btn-primary btn-outline btn-xs" href="$doc$">
+	PDF
+	</a>
+        $endif$
+	$if(arxiv)$
+        <a class="btn btn-primary btn-outline btn-xs" href="$arxiv$">
+	Online Arxiv
+	</a>
+	$endif$
+	$if(pres)$
+        <a class="btn btn-primary btn-outline btn-xs" href="$pres$">
+	  Presentation
+	</a>
+	$endif$
+	$if(post)$
+        <a class="btn btn-primary btn-outline btn-xs" href="$post$">
+	  Related Post
+	</a>
+        $endif$
+     </div>
+  <!-- </section> -->
+  <!-- <section> -->
+  <div class="pub-abstract" itemprop="text">
+    <h5>Abstract</h5>
+      $abstract$
+    </div>
+  <!-- </section> -->
+<!-- </article> -->
