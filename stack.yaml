@@ -36,11 +36,12 @@ resolver: lts-8.22
 # non-dependency (i.e. a user package), and its test suites and benchmarks
 # will not be run. This is useful for tweaking upstream packages.
 packages:
-- _ideas/jaspervdj
 - website
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
-extra-deps: []
+extra-deps: [ hjsmin-0.2.0.2
+            , language-javascript-0.6.0.4
+            ]
 
 # Override default flag values for local packages and extra-deps
 flags: {}

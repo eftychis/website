@@ -2,7 +2,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
-
+import qualified Data.ByteString.Lazy.Char8
+import qualified Text.Jasmine as Js
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -17,15 +18,19 @@ main = hakyll $ do
     --   route   $ setExtension "css"
     --   compile $ getResourceString >>= withItemBody (unixFilter "runghc" [])
         
-    match "css/*.css" $ do
-      route   idRoute
-      compile compressCssCompiler
+  match "css/*.css" $ do
+    route   idRoute
+    compile compressCssCompiler
 
-    match (fromList ["about.md", "contact.markdown"]) $ do
-      route   $ setExtension "html"
-      compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
+  match "scripts/*.js" $ do
+    route   idRoute
+    compile compressJsCompiler
+
+  match (fromList ["about.md", "contact.markdown"]) $ do
+    route   $ setExtension "html"
+    compile $ pandocCompiler
+      >>= loadAndApplyTemplate "templates/default.html" defaultContext
+      >>= relativizeUrls
 
     match "pages/*" $ do
         route $ setExtension "html"
@@ -98,3 +103,10 @@ postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+compressJsCompiler:: Compiler (Item String)
+compressJsCompiler=  do
+  let minifyJs= Data.ByteString.Lazy.Char8.unpack . Js.minify . Data.ByteString.Lazy.Char8.pack . itemBody
+  s <- getResourceString
+  return $ itemSetBody (minifyJs s) s
+  

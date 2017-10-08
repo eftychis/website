@@ -1,8 +1,10 @@
-<ul>
+
+
+<ul id="publications">
     $for(pubs)$
-        <li>
+        <li id="publications">
           <a href="$url$">$title$</a> - $date$
-	  $if(authors)$<div class=pub-authors>($authors$)</div>$endif$
+	  $if(authors)$<div class="pub-authors">($authors$)</div>$endif$
 	  <div class="pub-links">
 	    $if(doc)$
             <a class="btn btn-primary btn-outline btn-xs" href="$doc$">
@@ -24,6 +26,16 @@
 	      Related Post
 	    </a>
             $endif$
+	    $if(abstract)$
+            <a class="btn btn-primary btn-outline btn-xs showabstract" id="showabstract"> <!-- href="#show-abstract"> -->
+	      <!-- <input type='button' id='showabstract' value='hide/show'> -->
+	      Abstract
+	    </a>
+	    <div class="pub-abstract hide" itemprop="text">
+	      <h5>Abstract</h5>
+	      $abstract$
+	    </div>
+            $endif$
 	  </div>
 	  <!-- <div class="pub-abstract" itemprop="text"> -->
 	  <!--   $abstract$ -->
@@ -31,3 +43,7 @@
         </li>
     $endfor$
 </ul>
+
+
+<script src="scripts/jquery-3.2.1.min.js"></script>
+<script src="scripts/abstract.js"></script>
