@@ -3,7 +3,7 @@
 <ul id="publications">
     $for(pubs)$
         <li id="publications">
-          <a href="$url$">$title$</a> - $date$
+          <a href="$url$">$title$</a> $if(state)$-$state$$endif$
 	  $if(authors)$<div class="pub-authors">($authors$)</div>$endif$
 	  <div class="pub-links">
 	    $if(doc)$

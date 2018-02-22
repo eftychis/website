@@ -9,5 +9,6 @@ executable site
                   , hakyll == 4.9.*
                   , bytestring
                   , hjsmin == 0.2.*
+                  , latex-formulae-hakyll == 0.2.*
   ghc-options:      -threaded
   default-language: Haskell2010
