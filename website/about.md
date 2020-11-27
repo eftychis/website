@@ -4,7 +4,9 @@ title: About - Eftychios Theodorakis
 <div class="col-sm-7">
 <h1 id="biography">Biography</h1>
 
-I work on cryptography, distributed protocols, verification and logic transformations with John C. Mitchell at Stanford Security and Theory Lab. In between, I worked as a Software Engineer responsible for the Core Security on a Distributed OS/Cloud Platform at Apcera focusing on Authentication and Distributed Key Management Mechanisms, Consensus Protocols and Policy Language. Before that I devoted my time working on distributed systems at AT&T - specifically on consensus optimization.
+I work at the intersecion of cryptography and distributed protocols. I also have an interest in verification and logic transformations. I am currently working in the DFINITY Research Foundation, where I spend most of my time.
+
+Before, I worked with John C. Mitchell at Stanford Security and Theory Lab. In between, I worked as a Software Engineer responsible for the Core Security on a Distributed OS/Cloud Platform at Apcera focusing on Authentication and Distributed Key Management Mechanisms, Consensus Protocols and Policy Language. Before that I devoted my time working on distributed systems at AT&T - specifically on consensus optimization.
 
 You can find my CV [here](https://eftychis.org/cv/cv.pdf).
 </div>
