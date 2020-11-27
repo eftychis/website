@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
+import           Hakyll.Contrib.LaTeX
 import qualified Data.ByteString.Lazy.Char8
 import qualified Text.Jasmine as Js
 
@@ -11,12 +12,6 @@ main = hakyll $ do
   match "images/*" $ do
     route   idRoute
     compile copyFileCompiler
-    -- match "css/*.hs" $ do
-    --   route $ setExtension "css"
-    --   compile $ getResourceString >>= withItemBody  (unixFilter "runghc" [] )
-    -- match "css/*.hs" $ do
-    --   route   $ setExtension "css"
-    --   compile $ getResourceString >>= withItemBody (unixFilter "runghc" [])
         
   match "css/*.css" $ do
     route   idRoute
@@ -32,19 +27,38 @@ main = hakyll $ do
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
       >>= relativizeUrls
 
-    match "pages/*" $ do
-        route $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
-            >>= relativizeUrls
+    -- match "pages/*.markdown" $ do
+    --   route $ setExtension "html"
+    --   compile $ pandocCompiler
+    --       >>= loadAndApplyTemplate "templates/post.html"    postCtx
+    --       >>= loadAndApplyTemplate "templates/default.html" postCtx
+    --       >>= relativizeUrls
+
+    -- match "pages/*.tex" $ do
+    --   route $ setExtension "html"
+    --   compile $ do
+    --           -- renderFormulae <- initFormulaCompilerDataURI 1000 defaultEnv
+    --           pandocCompilerWithTransformM defaultHakyllReaderOptions defaultHakyllWriterOptions $ (initFormulaCompilerDataURI 1000 defaultEnv) defaultPandocFormulaOptions
+    --     -- >>= withItemBody (unixFilterLBS "rubber-pipe" ["-d"])
+    --     -- >>= loadAndApplyTemplate "templates/post.html"    postCtx
+    --     -- >>= loadAndApplyTemplate "templates/default.html" postCtx
+    --     -- >>= relativizeUrls
+
+    -- match "pages/*.tex" $ do
+    --   route $ setExtension "pdf"
+    --   compile $ getResourceLBS--pandocCompiler-- getResourceLBS
+    --     >>= withItemBody (unixFilterLBS "rubber-pipe" ["-d"])
+    --     -- >>= loadAndApplyTemplate "templates/post.html"    postCtx
+    --     -- >>= loadAndApplyTemplate "templates/default.html" postCtx
+    --     -- >>= relativizeUrls
+
 
     match "pubs/*" $ do
-        route $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/pub.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
-            >>= relativizeUrls
+      route $ setExtension "html"
+      compile $ pandocCompiler
+        >>= loadAndApplyTemplate "templates/pub.html"    postCtx
+        >>= loadAndApplyTemplate "templates/default.html" postCtx
+        >>= relativizeUrls
 
     create ["archive.html"] $ do
         route idRoute
@@ -77,18 +91,18 @@ main = hakyll $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
-            pubs <- recentFirst =<< loadAll "pubs/*"
-            let pubIndexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    listField "pubs" postCtx (return pubs) `mappend`
-                    constField "title" "Home"                `mappend`
-                    defaultContext
+          posts <- recentFirst =<< loadAll "posts/*"
+          pubs <- recentFirst =<< loadAll "pubs/*"
+          let pubIndexCtx =
+                listField "posts" postCtx (return posts) `mappend`
+                listField "pubs" postCtx (return pubs) `mappend`
+                constField "title" "Home"                `mappend`
+                defaultContext
             -- let pubIndexCtx =
 
             --         constField "title" "Home"            `mappend`
                     -- defaultContext
-            getResourceBody
+          getResourceBody
                 >>= applyAsTemplate pubIndexCtx
                 -- >>= applyAsTemplate postIndexCtx
                 -- >>= loadAndApplyTemplate "templates/default.html" postIndexCtx
