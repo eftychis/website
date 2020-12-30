@@ -46,6 +46,7 @@ You can find my CV [here](https://eftychis.org/cv/cv.pdf).
 <div class="col-sm-5">
 <h3>Industry Experience</h3>
 <ul class="ul-interests">
+<li>DFINITY Foundation, R&D Staff, 2018-Present</li>
 <li>Apcera, Software Engineer, Core Security, 2015-2017</li>
 <li>AT&T Labs Intern, 2014</li>
 </ul>
