@@ -5,8 +5,8 @@ title: Contact
 
 Feel free to shoot me an email at
 
-`((first name) -{o}) OR (first name).(last name))->alumNi.Stanford University's domain`
+`(crypto) at current domain`
 
 or
 
-`(crypto) at current domain`.
+`((first name) -{o}) OR (first name).(last name))->alumNi.Stanford University's domain`.
