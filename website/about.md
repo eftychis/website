@@ -4,9 +4,11 @@ title: About - Eftychios Theodorakis
 <div class="col-sm-7">
 <h1 id="biography">Biography</h1>
 
-I work at the intersecion of cryptography and distributed protocols. I also have an interest in verification and logic transformations. I am currently working in the DFINITY Research Foundation, where I spend most of my time.
+I work at the intersecion of cryptography and distributed protocols. I also have an interest in verification and logic transformations. I worked at the DFINITY Research Foundation, where I spend most of my time designing and building the Byzantine Fault Tolerance mechanism, runtime architecture, and touched other topics such as user identity.
 
 Before, I worked with John C. Mitchell at Stanford Security and Theory Lab. In between, I worked as a Software Engineer responsible for the Core Security on a Distributed OS/Cloud Platform at Apcera focusing on Authentication and Distributed Key Management Mechanisms, Consensus Protocols and Policy Language. Before that I devoted my time working on distributed systems at AT&T - specifically on consensus optimization.
+
+I am currently pushing the envelope of future BFT protocols and building the B2B SaaS Network.
 
 You can find my CV [here](https://eftychis.org/cv/cv.pdf).
 </div>
@@ -46,7 +48,9 @@ You can find my CV [here](https://eftychis.org/cv/cv.pdf).
 <div class="col-sm-5">
 <h3>Industry Experience</h3>
 <ul class="ul-interests">
-<li>DFINITY Foundation, R&D Staff, 2018-Present</li>
+<li>Black Rubicon, 2023</li>
+<li>Distributed Cryptography Labs, R&D Staff, 2021-Present</li>
+<li>DFINITY Foundation, R&D Staff, 2018-2021</li>
 <li>Apcera, Software Engineer, Core Security, 2015-2017</li>
 <li>AT&T Labs Intern, 2014</li>
 </ul>
