@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
-import           Hakyll.Contrib.LaTeX
+-- import           Hakyll.Contrib.LaTeX
 import qualified Data.ByteString.Lazy.Char8
 import qualified Text.Jasmine as Js
 
